@@ -1,0 +1,905 @@
+// /common styles/
+@import url("https://fonts.googleapis.com/css2?family=Vollkorn&display=swap");
+
+$primary-color: #2b81e4;
+$secondary-color: #eee;
+$white-color: #fff;
+$grey-color: #555;
+$light-grey-color: #777;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Vollkorn", serif;
+  list-style-type: none;
+  text-decoration: none;
+  outline: none;
+}
+
+html {
+  font-size: 62.5%;
+  //For rem size
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background-color: $secondary-color;
+  margin: 3.5rem;
+  box-shadow: 0 1rem 3rem $grey-color;
+  overflow: hidden;
+
+  &.change {
+    .nav-link {
+      top: 0;
+    }
+    .navbar-wrapper {
+      bottom: 0;
+      opacity: 1;
+    }
+  }
+}
+
+// .change .nav-link {
+//   top: 0;
+// }
+
+// .change .navbar-wrapper {
+//   bottom: 0;
+//   opacity: 1;
+//   transition: bottom 0.5s, opacity 0.2s 0.25s;
+// }
+
+//End of common styles
+
+//Navbar
+
+.navbar-icon {
+  width: 5.5rem;
+  height: 5.5rem;
+  background-color: $white-color;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-direction: column;
+
+  .line {
+    height: 0.2rem;
+    width: 3.5rem;
+    background-color: $light-grey-color;
+  }
+}
+
+.navbar-wrapper {
+  // display: none;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: fixed;
+  left: 0;
+  bottom: -100%;
+  opacity: 0;
+  z-index: 300;
+  padding: 3.5rem 5.5rem 3.5rem 3.5rem;
+  //5.5 rem to compensate for scroll bar of 20 px.
+
+  // &.change {
+  //   bottom: 0;
+  //   opacity: 1;
+  // }
+
+  .navbar {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+      url(/img/navbar-bg.jpg) center no-repeat;
+    background-size: cover;
+    position: relative;
+
+    .close-navbar-icon {
+      position: absolute;
+      top: 2.5rem;
+      right: 3rem;
+      z-index: 300;
+
+      .line {
+        position: absolute;
+
+        &.line-1 {
+          transform: rotate(40deg);
+        }
+        &.line-2 {
+          transform: rotate(-40deg);
+        }
+      }
+    }
+
+    .nav-list {
+      height: 100%;
+      display: flex;
+
+      .nav-link {
+        font-size: 3rem;
+        font-weight: 700;
+        color: $white-color;
+        text-transform: uppercase;
+        width: 100%;
+        opacity: 0.8;
+        transition: all 0.3s;
+        position: relative;
+        top: -100%;
+
+        // &.change {
+        //   top: 0;
+        // }
+
+        &:hover {
+          opacity: 1;
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+.open-navbar-icon {
+  position: fixed;
+  top: 6.5rem;
+  left: 6.5rem;
+  //Z-index because nav bar hides
+  z-index: 50;
+
+  .line {
+    margin: 0.3rem 0;
+  }
+}
+
+//End of Navbar
+
+//header start
+.header {
+  width: 100%;
+  height: calc(100vh - 7rem);
+  background: linear-gradient(rgba(18, 113, 255, 0.5), rgba(18, 113, 255, 0.3)),
+    url(/img/headerballon-bg.jpg) center no-repeat;
+  background-size: cover;
+  position: relative;
+  //to make 3d image for ballon
+  perspective: 100rem;
+
+  .header-text {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    text-shadow: 0 0.3rem 0.5rem $grey-color;
+
+    .heading {
+      font-size: 8rem;
+      color: $white-color;
+    }
+
+    .header-paragraph {
+      font-size: 3rem;
+      font-weight: 500;
+      color: $secondary-color;
+      max-width: 70rem;
+      margin: auto;
+    }
+  }
+
+  .logo {
+    position: absolute;
+    top: 4rem;
+    right: 4rem;
+
+    h1 {
+      //span items
+      display: flex;
+      span {
+        font-size: 2rem;
+        font-weight: 900;
+        color: $primary-color;
+        text-transform: uppercase;
+        background: $white-color;
+        width: 3.5rem;
+        height: 3.5rem;
+        //span is inline so width height doesn't change so display it block
+        // display: block; //removed as span is now display flex
+        margin: 0.5rem;
+        border-radius: 50%;
+
+        //to align letters center assign class center to it.
+
+        //animating the span characters
+        &:nth-child(1) {
+          animation: drop-letters 5s 0.1s infinite;
+        }
+        &:nth-child(2) {
+          animation: drop-letters 5s 0.2s infinite;
+        }
+        &:nth-child(3) {
+          animation: drop-letters 5s 0.3s infinite;
+        }
+        &:nth-child(4) {
+          animation: drop-letters 5s 0.4s infinite;
+        }
+        &:nth-child(5) {
+          animation: drop-letters 5s 0.5s infinite;
+        }
+        &:nth-child(6) {
+          animation: drop-letters 5s 0.6s infinite;
+        }
+        &:nth-child(7) {
+          animation: drop-letters 5s 0.7s infinite;
+        }
+        &:nth-child(8) {
+          animation: drop-letters 5s 0.8s infinite;
+        }
+      }
+    }
+  }
+
+  .header-image {
+    width: 35%;
+    animation: image-float 100s infinite;
+  }
+}
+
+@keyframes drop-letters {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(-100%);
+  }
+  20% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes image-float {
+  0% {
+    transform: translateZ(40rem);
+    opacity: 1;
+  }
+  40% {
+    transform: translateZ(-500rem) translateX(150rem);
+    opacity: 0.8;
+  }
+  70% {
+    transform: translateZ(-1500rem) translateX(800rem);
+    opacity: 0.6;
+  }
+  80% {
+    transform: translateZ(-50rem) translateX(100rem);
+    opacity: 0.8;
+  }
+  80% {
+    transform: translateZ(50rem);
+    opacity: 0.8;
+  }
+}
+
+//End of header
+
+//Popular tours
+
+.popular-tours {
+  padding: 5rem 0 10rem 0;
+
+  .popular-tours-heading {
+    font-size: 8rem;
+    text-align: center;
+    margin-bottom: 8rem;
+    color: $primary-color;
+    text-shadow: 0 0.1rem 0.2rem $primary-color;
+  }
+
+  .cards-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+
+    .card {
+      width: 35rem;
+      position: relative;
+      //3d enviornment
+      perspective: 150rem;
+
+      &.change > .front-side {
+        transform: translateZ(-5rem) translateX(2rem);
+        box-shadow: 0 2rem 4rem $light-grey-color;
+        opacity: 0.5;
+        z-index: 0;
+      }
+      &.change > .back-side {
+        transform: translateZ(0) translateX(0);
+        box-shadow: 0 0.5rem 2rem #aaa;
+        opacity: 0.9;
+      }
+
+      .front-side {
+        text-align: center;
+        background-color: $white-color;
+        border-radius: 0.3rem;
+        position: relative;
+        z-index: 10;
+        opacity: 0.9;
+        //Smooth transition
+        transition: opacity 0.4s, transform 0.4s, box-shadow 0.4s;
+
+        .card-image {
+          width: 100%;
+          border-radius: 0.3rem 0.3rem 0 0;
+        }
+
+        .tour-name {
+          font-size: 2.5rem;
+          text-transform: uppercase;
+          font-weight: 700;
+          position: absolute;
+          top: 30%;
+          right: 1.5rem;
+          color: $white-color;
+          text-shadow: 0 0 1rem black;
+        }
+
+        .card-list {
+          width: 80%;
+          margin: auto;
+          padding: 2rem 0 3rem 0;
+
+          .card-list-item {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: $light-grey-color;
+            margin: 2rem 0;
+            border-bottom: 0.1rem solid $primary-color;
+            padding-bottom: 1.5rem;
+          }
+        }
+      }
+
+      .back-side {
+        position: absolute;
+        top: 0;
+        background-color: $primary-color;
+        width: 100%;
+        height: 100%;
+        border-radius: 0.3rem;
+        box-shadow: 0 2rem 4rem $light-grey-color;
+        flex-direction: column;
+        transform: translateZ(-5rem) translateX(3rem);
+        opacity: 0.5;
+        transition: opacity 0.4s, transform 0.4s, box-shadow 0.4s;
+
+        .tour-price {
+          font-size: 5rem;
+          font-weight: 500;
+          color: $white-color;
+          margin-bottom: 3rem;
+        }
+
+        .card-button {
+          color: $primary-color;
+          background-color: $white-color;
+          border: none;
+          font-size: 2.5rem;
+          padding: 1rem 2rem;
+          letter-spacing: 0.2rem;
+          border-radius: 5rem;
+          cursor: pointer;
+        }
+      }
+
+      .navigation-button {
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        padding: 0.5rem;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 0.3rem;
+        border: none;
+        color: $light-grey-color;
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
+//End of Popular tours
+
+//Stories
+
+.stories {
+  padding: 10rem 0;
+  position: relative;
+
+  .stories-heading {
+    text-align: center;
+    font-size: 8rem;
+    text-align: center;
+    margin-bottom: 8rem;
+    color: $primary-color;
+    text-shadow: 0 0.1rem 0.2rem $primary-color;
+    z-index: 25;
+    opacity: 1;
+  }
+
+  .video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+
+    .bg-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .stories-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .story-bg {
+      background: rgba(238, 238, 238, 0.8);
+      padding: 5rem;
+      margin: 5rem;
+      width: 70%;
+      box-shadow: 0 2rem 5rem rgba(51, 51, 51, 0.4);
+      //to transform on X axis
+      transform: skewX(20deg);
+
+      .story {
+        // To reskew elements inside background div
+        transform: skewX(-20deg);
+        display: flex;
+
+        .story-image {
+          width: 20rem;
+          height: 20rem;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-right: 5rem;
+        }
+
+        .story-text {
+          letter-spacing: 0.1rem;
+
+          .story-heading {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            color: $grey-color;
+            margin-bottom: 1rem;
+          }
+
+          p {
+            font-size: 1.8rem;
+            color: $light-grey-color;
+
+            &::first-letter {
+              //To give the first letter spacing
+              margin-left: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//End ofStories
+
+//Contact
+
+.contact {
+  padding: 15rem 0 20rem 0;
+  text-align: center;
+  background: url(/img/contact-us-bg.png) center no-repeat;
+  background-size: cover;
+  animation: contact-bg 30s infinite;
+
+  .contact-heading {
+    font-size: 7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    color: $white-color;
+    text-shadow: 0 1rem 2rem #000;
+    margin-bottom: 8rem;
+  }
+
+  .contact-form {
+    width: 70rem;
+    height: 60rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    margin: auto;
+    flex-direction: column;
+    border-radius: 0.5rem;
+    box-shadow: 0 1rem 3rem #000;
+    padding: 5rem;
+
+    .input-group {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin: 1rem 0;
+      position: relative;
+
+      //Controling the size of text area
+      textarea {
+        max-width: 100%;
+        max-height: 15rem;
+      }
+
+      label {
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        color: $grey-color;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+      }
+    }
+    .input-groups {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+
+      .input-group {
+        width: 48.5%;
+      }
+    }
+
+    .input-group input,
+    .input-group textarea {
+      padding: 3rem 1rem 1rem 1rem;
+      background-color: $secondary-color;
+      border: 0.1rem solid $secondary-color;
+      font-size: 1.4rem;
+      color: $light-grey-color;
+      letter-spacing: 0.1rem;
+      border-radius: 0.5rem;
+      transition: border 0.3s;
+
+      &:focus {
+        border: 0.1rem solid #ccc;
+      }
+    }
+
+    .form-btn {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.6rem;
+      letter-spacing: 0.1rem;
+      margin-top: 1rem;
+      background-color: $light-grey-color;
+      color: $white-color;
+      border-radius: 0.5rem;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.4s;
+
+      &:hover {
+        background-color: $grey-color;
+      }
+    }
+  }
+}
+
+//changing color of contact section
+@keyframes contact-bg {
+  0% {
+    background-color: #3d3d3d;
+  }
+  25% {
+    background-color: #ced8e4;
+  }
+  50% {
+    background-color: #1e81f3;
+  }
+  75% {
+    background-color: #ff7842;
+  }
+  100% {
+    background-color: #3d3d3d;
+  }
+}
+//End of contact
+
+//Footer
+
+.footer {
+  background-color: $grey-color;
+  padding: 4rem 0 2rem 0;
+
+  .footer-list {
+    display: flex;
+    justify-content: center;
+
+    .footer-link {
+      font-size: 2rem;
+      color: $white-color;
+      margin: 0 2rem;
+      background-color: $grey-color;
+      padding: 0.3rem 3rem;
+      letter-spacing: 0.3rem;
+      transition: all 0.2s;
+
+      // &:hover {
+      //   transform: rotate(-10deg);
+      //   box-shadow: 0 2rem 3rem #000;
+      // }
+
+      &:nth-of-type(even) {
+        &:hover {
+          transform: rotate(-10deg);
+          box-shadow: 0 2rem 3rem #000;
+        }
+      }
+      &:nth-of-type(odd) {
+        &:hover {
+          transform: rotate(10deg);
+          box-shadow: 0 2rem 3rem #000;
+        }
+      }
+    }
+  }
+
+  p {
+    text-align: center;
+    font-size: 1.5rem;
+    color: $secondary-color;
+    letter-spacing: 0.2rem;
+    margin-top: 5rem;
+  }
+}
+
+//End of Footer
+
+//Css media queries
+
+@media (max-width: 1200px) {
+  .popular-tours {
+    .cards-wrapper {
+      flex-direction: column;
+      align-items: center;
+
+      .card {
+        margin: 3rem 0;
+      }
+    }
+  }
+
+  .stories {
+    .stories-wrapper {
+      .story-bg {
+        width: 85%;
+      }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .header {
+    position: relative;
+    .header-text {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -20%);
+      z-index: 10;
+
+      .heading {
+        font-size: 6rem;
+      }
+
+      .header-paragraph {
+        font-size: 2.5rem;
+      }
+    }
+  }
+
+  .stories {
+    .stories-wrapper {
+      .story-bg {
+        width: 90%;
+        transform: skewX(0);
+        border-radius: 1rem;
+
+        .story {
+          transform: skewX(0);
+          position: relative;
+
+          img {
+            margin-top: 50px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    .footer-list {
+      .footer-link {
+        padding: 0.3rem 2rem;
+        text-align: center;
+        margin: 0 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .header {
+    .header-text {
+      .header-paragraph {
+        display: none;
+      }
+    }
+  }
+
+  .popular-tours {
+    .popular-tours-heading {
+      font-size: 5rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .stories {
+    .stories-wrapper {
+      .story-bg {
+        .story {
+          flex-direction: column;
+          align-items: center;
+
+          .story-image {
+            margin: 0 auto;
+            margin-bottom: 15px;
+          }
+
+          .story-text {
+            h1 {
+              text-align: center;
+            }
+            p {
+              text-align: justify;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .contact {
+    .contact-form {
+      width: 50rem;
+      height: 40rem;
+    }
+  }
+
+  .footer {
+    .footer-list {
+      width: 60%;
+      flex-wrap: wrap;
+      margin: 0 auto;
+
+      .footer-link {
+        padding: 2rem 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 0;
+
+    .open-navbar-icon {
+      top: 2.5rem;
+      left: 2.5rem;
+    }
+
+    .header {
+      .logo {
+        h1 {
+          span {
+            font-size: 1.5rem;
+            width: 2.5rem;
+            height: 2.5rem;
+          }
+        }
+      }
+    }
+
+    .contact {
+      .contact-heading {
+        font-size: 6rem;
+      }
+
+      .contact-form {
+        padding: 5rem 2rem;
+        width: 40rem;
+      }
+    }
+
+    .footer {
+      .footer-list {
+        flex-direction: column;
+        align-items: center;
+
+        .footer-link {
+          width: 20rem;
+          border-bottom: 1px solid $light-grey-color;
+          padding: 2rem 0 1rem 0;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    .logo {
+      top: 10rem;
+    }
+  }
+
+  .popular-tours {
+    .cards-wrapper {
+      .card {
+        width: 27rem;
+      }
+    }
+  }
+
+  .contact {
+    .contact-form {
+      width: 100%;
+      height: 50rem;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 2rem 0rem;
+
+      .input-group {
+        width: 25rem;
+        margin: 1rem auto;
+        margin-left: 4rem;
+      }
+
+      .input-groups {
+        flex-direction: column;
+
+        .input-group {
+          width: 25rem;
+        }
+      }
+
+      .form-btn {
+        width: 25rem;
+        margin: 2re auto;
+        margin-left: 4rem;
+      }
+    }
+  }
+}
